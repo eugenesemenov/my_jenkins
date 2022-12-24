@@ -1,10 +1,14 @@
 pipeline {
-    agent { docker { image 'node:16.17.1-alpine' } }
+    agent any
+
     stages {
-        stage('build') {
-            steps {
-                sh 'node --version'
+        stage('Build') {
+            steps {                
+                sh "whoami"
+               
+                // Install nginx.
+                sh "apt-get install nginx"
             }
-        }
+       }
     }
 }
